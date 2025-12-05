@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title>Investing Club | Resources</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav class="nav">
+          <a href="index.html" class="nav-logo">
+            <div class="nav-logo-mark">
+              <span>IC</span>
+            </div>
+            <div class="nav-logo-text">
+              <span>Investing Club</span>
+              <small>Learn · Compete · Grow</small>
+            </div>
+          </a>
+
+          <button
+            class="nav-toggle"
+            aria-label="Toggle navigation"
+          >
+            ☰
+          </button>
+
+          <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="resources.html" class="active">Resources</a>
+            <a href="competitions.html">Competitions</a>
+          </div>
+
+          <div class="nav-cta">
+            <a href="index.html#join" class="btn btn-outline"
+              >Join the club</a
+            >
+            <a
+              href="https://forms.gle/YOUR-FORM-ID"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+              >Sign up</a
+            >
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Resources</div>
+              <h1 class="section-title">
+                Learn the basics, then go deeper
+              </h1>
+            </div>
+            <p class="section-desc">
+              This page is your starting point: simple intros, curated
+              videos, and all of our club slide decks in one place.
+            </p>
+          </div>
+
+          <div class="grid grid-3">
+            <article class="card">
+              <h3>Start here</h3>
+              <p>New to investing? Begin with these basics.</p>
+              <ul>
+                <li>
+                  <a href="[link]"
+                    >What is a stock? (PDF / doc)</a
+                  >
+                </li>
+                <li>
+                  <a href="[link]"
+                    >Intro to risk &amp; diversification</a
+                  >
+                </li>
+                <li>
+                  <a href="[link]"
+                    >Investing vs. trading vs. gambling</a
+                  >
+                </li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3>Video &amp; interactive lessons</h3>
+              <p>External sites we think are actually good.</p>
+              <ul>
+                <li>
+                  <a href="[link to Khan / etc.]"
+                    >Beginner investing course</a
+                  >
+                </li>
+                <li>
+                  <a href="[link to simulator]"
+                    >Paper trading simulator</a
+                  >
+                </li>
+                <li>
+                  <a href="[link to SEC / investor.gov]"
+                    >Investor.gov basics</a
+                  >
+                </li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3>Club slide decks</h3>
+              <p>
+                All our past presentations in one folder so you can
+                review or catch up.
+              </p>
+              <ul>
+                <li>
+                  <a href="[Google Drive folder link]"
+                    >Meeting slides archive</a
+                  >
+                </li>
+                <li>
+                  <a href="[link]"
+                    >Intro to reading a stock chart</a
+                  >
+                </li>
+                <li>
+                  <a href="[link]"
+                    >Sample stock pitch</a
+                  >
+                </li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3>Strategy &amp; analysis</h3>
+              <p>
+                For members who want to go beyond the basics over time.
+              </p>
+              <ul>
+                <li>
+                  <a href="[link]"
+                    >Fundamental analysis cheat sheet</a
+                  >
+                </li>
+                <li>
+                  <a href="[link]"
+                    >Technical indicators cheat sheet</a
+                  >
+                </li>
+                <li>
+                  <a href="[link]"
+                    >How to research a company</a
+                  >
+                </li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3>Glossary</h3>
+              <p>Short, friendly definitions of common terms.</p>
+              <ul>
+                <li>
+                  <a href="[link to your glossary doc]"
+                    >Investing Club mini-glossary</a
+                  >
+                </li>
+                <li>
+                  <a href="[link]"
+                    >External glossary we recommend</a
+                  >
+                </li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3>Safety &amp; mindset</h3>
+              <p>
+                How to think about money long-term and avoid common
+                mistakes.
+              </p>
+              <ul>
+                <li>
+                  <a href="[link]"
+                    >Long-term investing principles</a
+                  >
+                </li>
+                <li>
+                  <a href="[link]"
+                    >Why “get rich quick” doesn’t work</a
+                  >
+                </li>
+                <li>
+                  <a href="[link]"
+                    >Club risk &amp; ethics guidelines</a
+                  >
+                </li>
+              </ul>
+            </article>
+          </div>
+
+          <p
+            class="disclaimer"
+            style="margin-top: 1.5rem; max-width: 44rem"
+          >
+            Links on this page are for learning only. We don’t control
+            external sites and we don’t endorse any specific stock,
+            fund, broker, or strategy. Always do your own research and
+            talk to a trusted adult before making real financial
+            decisions.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <span>
+          ©
+          <span id="year"></span>
+          Investing Club. Educational use only · Not financial advice.
+        </span>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      document.getElementById("year").textContent =
+        new Date().getFullYear();
+    </script>
+  </body>
+</html>

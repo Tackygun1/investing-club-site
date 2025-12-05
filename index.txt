@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title>Investing Club | Home</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav class="nav">
+          <a href="index.html" class="nav-logo">
+            <div class="nav-logo-mark">
+              <span>IC</span>
+            </div>
+            <div class="nav-logo-text">
+              <span>Investing Club</span>
+              <small>Learn · Compete · Grow</small>
+            </div>
+          </a>
+
+          <button
+            class="nav-toggle"
+            aria-label="Toggle navigation"
+          >
+            ☰
+          </button>
+
+          <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="resources.html">Resources</a>
+            <a href="competitions.html">Competitions</a>
+          </div>
+
+          <div class="nav-cta">
+            <a href="#join" class="btn btn-outline">How to join</a>
+            <a
+              href="https://forms.gle/YOUR-FORM-ID"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+              >Sign up</a
+            >
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO: recruiting pitch -->
+      <section class="hero">
+        <div class="container hero-inner">
+          <div>
+            <div class="hero-eyebrow">
+              High school investing, zero hype
+            </div>
+            <h1 class="hero-title">
+              Learn markets.<br />
+              <span>Practice safely.</span><br />
+              Compete with friends.
+            </h1>
+            <p class="hero-subtitle">
+              Investing Club is a student-run community where you’ll
+              learn how markets work, build investing strategies, and
+              compete in paper trading tournaments&mdash;all in a
+              risk-free, educational environment.
+            </p>
+
+            <div class="hero-tags">
+              <span class="tag">Beginner-friendly</span>
+              <span class="tag">No real-money trading</span>
+              <span class="tag">Stock pitches &amp; comps</span>
+            </div>
+
+            <div class="hero-cta-row">
+              <a
+                href="https://forms.gle/YOUR-FORM-ID"
+                class="btn btn-primary"
+                target="_blank"
+                rel="noopener"
+                >Join the club</a
+              >
+              <a href="resources.html" class="btn btn-outline"
+                >Browse resources</a
+              >
+            </div>
+
+            <div class="hero-meta">
+              <div class="hero-meta-item">
+                <strong>Meetings</strong>
+                <span
+                  >[Day &amp; time here]<br />[Room / location]</span
+                >
+              </div>
+              <div class="hero-meta-item">
+                <strong>Who can join?</strong>
+                <span>All experience levels · Grades [x–y]</span>
+              </div>
+              <div class="hero-meta-item">
+                <strong>What we do</strong>
+                <span
+                  >Mini-lessons · stock pitches · competitions · Q&amp;A</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <aside class="hero-card">
+            <div class="hero-card-header">
+              <h2>Next meeting</h2>
+              <span class="pill">Upcoming</span>
+            </div>
+            <ul class="hero-list">
+              <li><strong>Topic:</strong> [e.g. Intro to ETFs]</li>
+              <li><strong>Date:</strong> [MM/DD]</li>
+              <li>
+                <strong>Location:</strong> [Room / online link]
+              </li>
+              <li>
+                <strong>Prep:</strong> Bring a ticker you’re curious
+                about
+              </li>
+            </ul>
+            <p class="disclaimer">
+              This club and website are for educational purposes only.
+              Nothing here is financial advice or a recommendation to
+              buy or sell any security.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- WHY JOIN -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Why join</div>
+              <h2 class="section-title">
+                What you’ll get from Investing Club
+              </h2>
+            </div>
+            <p class="section-desc">
+              Whether you’re brand new to markets or already trading on
+              a simulator, the club helps you build real skills&mdash;not
+              just meme stock FOMO.
+            </p>
+          </div>
+
+          <div class="grid grid-3">
+            <article class="card">
+              <h3>Foundations</h3>
+              <p>
+                Build a legit understanding of how investing actually
+                works.
+              </p>
+              <ul>
+                <li>What stocks, ETFs, and bonds are</li>
+                <li>Diversification &amp; risk</li>
+                <li>Basic fundamental &amp; technical ideas</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3>Practice, not theory only</h3>
+              <p>
+                Apply what you learn in simulations and friendly
+                competitions.
+              </p>
+              <ul>
+                <li>Paper trading tournaments</li>
+                <li>Strategy “show &amp; tell” sessions</li>
+                <li>Group breakdowns of real stocks</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3>Signals for your future</h3>
+              <p>
+                Great for college apps, interviews, and real life money
+                decisions later.
+              </p>
+              <ul>
+                <li>Leadership opportunities</li>
+                <li>Public speaking &amp; stock pitches</li>
+                <li>Stronger financial literacy</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- HOW TO JOIN -->
+      <section class="section" id="join">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Join the club</div>
+              <h2 class="section-title">
+                How to get started in 3 steps
+              </h2>
+            </div>
+            <p class="section-desc">
+              You don’t need any experience or money. Just curiosity,
+              basic respect for others, and a willingness to learn.
+            </p>
+          </div>
+
+          <ol class="steps">
+            <li>
+              Fill out the
+              <a
+                href="https://forms.gle/YOUR-FORM-ID"
+                target="_blank"
+                rel="noopener"
+                >member interest form</a
+              >.
+            </li>
+            <li>
+              Show up to a meeting (time &amp; room listed above). Bring
+              a laptop if you have one.
+            </li>
+            <li>
+              Join our announcements channel:
+              <strong>[Remind / email / Discord invite here]</strong>.
+            </li>
+          </ol>
+
+          <p
+            class="disclaimer"
+            style="margin-top: 1rem; max-width: 42rem"
+          >
+            We never ask members to trade real money. All competitions
+            are run with virtual portfolios or purely hypothetical
+            strategies, and are designed to help you think critically
+            about risk.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <span>
+          ©
+          <span id="year"></span>
+          Investing Club. Educational use only · Not financial advice.
+        </span>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      // simple year updater
+      document.getElementById("year").textContent =
+        new Date().getFullYear();
+    </script>
+  </body>
+</html>

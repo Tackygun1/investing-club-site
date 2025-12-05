@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title>Investing Club | Competitions</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav class="nav">
+          <a href="index.html" class="nav-logo">
+            <div class="nav-logo-mark">
+              <span>IC</span>
+            </div>
+            <div class="nav-logo-text">
+              <span>Investing Club</span>
+              <small>Learn · Compete · Grow</small>
+            </div>
+          </a>
+
+          <button
+            class="nav-toggle"
+            aria-label="Toggle navigation"
+          >
+            ☰
+          </button>
+
+          <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="resources.html">Resources</a>
+            <a href="competitions.html" class="active"
+              >Competitions</a
+            >
+          </div>
+
+          <div class="nav-cta">
+            <a href="index.html#join" class="btn btn-outline"
+              >Join the club</a
+            >
+            <a
+              href="https://forms.gle/YOUR-FORM-ID"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+              >Sign up</a
+            >
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section competition-hero">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Competitions</div>
+              <h1 class="section-title">
+                Practice your skills in a safe way
+              </h1>
+            </div>
+            <p class="section-desc">
+              All competitions use paper trading or purely hypothetical
+              strategies so you can test ideas without risking real
+              money.
+            </p>
+          </div>
+
+          <div class="grid" style="gap: 1.25rem">
+            <article class="card">
+              <div class="badge-row">
+                <span class="badge">Semester league</span>
+                <span class="badge">Paper trading</span>
+                <span class="badge">Educational only</span>
+              </div>
+              <h3>Current competition: [Name]</h3>
+              <p>
+                Brief description of the current competition. Example:
+                “8-week paper trading league starting with $100,000
+                virtual cash. Most improved risk-adjusted return wins.”
+              </p>
+              <ul>
+                <li><strong>Start date:</strong> [MM/DD/YYYY]</li>
+                <li><strong>End date:</strong> [MM/DD/YYYY]</li>
+                <li><strong>Platform:</strong> [Simulator / spreadsheet]</li>
+                <li>
+                  <strong>Eligible:</strong> Club members only /
+                  everyone at school / etc.
+                </li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3>How scoring works</h3>
+              <p>
+                Make the rules clear so everything feels fair and
+                transparent.
+              </p>
+              <ul>
+                <li>
+                  Example: Ranked by final portfolio value, with a max
+                  position size and no leverage.
+                </li>
+                <li>
+                  Example: You must submit a short write-up explaining
+                  your strategy.
+                </li>
+                <li>
+                  Example: Bonus points for risk management and
+                  diversification.
+                </li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3>Rules &amp; expectations</h3>
+              <p>
+                A quick code of conduct to keep things educational and
+                respectful.
+              </p>
+              <ul>
+                <li>No sharing real brokerage account screenshots.</li>
+                <li>
+                  No “pump &amp; dump” or harassment around picks.
+                </li>
+                <li>
+                  Be ready to explain your reasoning at a basic level.
+                </li>
+              </ul>
+            </article>
+          </div>
+
+          <!-- Leaderboard (update manually each week) -->
+          <article class="card" style="margin-top: 1.5rem">
+            <h3>Leaderboard</h3>
+            <p style="margin-bottom: 0.5rem">
+              Updated every [week / meeting]. Names can be first name +
+              last initial if you want more privacy.
+            </p>
+            <table class="leaderboard">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Member</th>
+                  <th>Portfolio value</th>
+                  <th>Return</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>[Name]</td>
+                  <td>$[value]</td>
+                  <td>+[x.xx]%</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>[Name]</td>
+                  <td>$[value]</td>
+                  <td>+[x.xx]%</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>[Name]</td>
+                  <td>$[value]</td>
+                  <td>+[x.xx]%</td>
+                </tr>
+              </tbody>
+            </table>
+          </article>
+
+          <!-- Past competitions -->
+          <article class="card" style="margin-top: 1.25rem">
+            <h3>Past competitions</h3>
+            <p style="margin-bottom: 0.5rem">
+              A quick history of what we’ve run before.
+            </p>
+            <ul>
+              <li>
+                [Semester / Year] &mdash; [Name of comp] &mdash; Winner:
+                [Name] &mdash; Strategy highlight: [1 sentence].
+              </li>
+              <li>
+                [Semester / Year] &mdash; [Name of comp] &mdash; Winner:
+                [Name] &mdash; Strategy highlight: [1 sentence].
+              </li>
+              <li>
+                [Semester / Year] &mdash; Stock pitch night &mdash;
+                Best pitch: [Ticker] &mdash; [1 sentence why it won].
+              </li>
+            </ul>
+          </article>
+
+          <p
+            class="disclaimer"
+            style="margin-top: 1.5rem; max-width: 44rem"
+          >
+            All competitions are run for educational purposes only. No
+            real money is required or encouraged, and results do not
+            predict future returns. Talk to a trusted adult before
+            making any real-world investing decisions.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <span>
+          ©
+          <span id="year"></span>
+          Investing Club. Educational use only · Not financial advice.
+        </span>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      document.getElementById("year").textContent =
+        new Date().getFullYear();
+    </script>
+  </body>
+</html>
