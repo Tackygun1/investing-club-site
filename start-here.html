@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Investing Club | Start Here</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav class="nav">
+          <a href="index.html" class="nav-logo">
+            <div class="nav-logo-mark">
+              <span>IC</span>
+            </div>
+            <div class="nav-logo-text">
+              <span>Investing Club</span>
+              <small>Learn · Compete · Grow</small>
+            </div>
+          </a>
+
+          <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+
+          <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="resources.html" class="active">Resources</a>
+            <a href="competitions.html">Competitions</a>
+          </div>
+
+          <div class="nav-cta">
+            <a href="index.html#join" class="btn btn-outline">Join the club</a>
+            <a
+              href="https://forms.gle/YOUR-FORM-ID"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+              >Sign up</a
+            >
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Resources</div>
+              <h1 class="section-title">Start here</h1>
+            </div>
+            <p class="section-desc">
+              Beginner-friendly orientation for new members. Swap the bracketed
+              placeholders with your actual docs and links.
+            </p>
+          </div>
+
+          <div class="grid grid-3">
+            <article class="card">
+              <h3>Orientation checklist</h3>
+              <p>Welcome new members and set expectations.</p>
+              <ul>
+                <li><strong>[Link]</strong> — What stocks, ETFs, and bonds are</li>
+                <li><strong>[Link]</strong> — How diversification works</li>
+                <li><strong>[Link]</strong> — Investing vs. trading vs. gambling</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3>First meeting prep</h3>
+              <p>Use this to get people ready to participate.</p>
+              <ul>
+                <li><strong>[Slide / PDF]</strong> — Club overview deck</li>
+                <li><strong>[Doc]</strong> — How to pick your first ticker</li>
+                <li><strong>[Link]</strong> — Free account on your simulator</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3>Foundations to share</h3>
+              <p>Quick handouts you can print or email.</p>
+              <ul>
+                <li><strong>[One-pager]</strong> — Parts of a stock quote</li>
+                <li><strong>[One-pager]</strong> — What moves prices</li>
+                <li><strong>[One-pager]</strong> — Common investor terms</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="hero-meta" style="margin-top: 1.5rem">
+            <div class="hero-meta-item">
+              <strong>Tip</strong>
+              <span>Replace each <strong>[Link]</strong> with your real resources.</span>
+            </div>
+            <div class="hero-meta-item">
+              <strong>Need a form?</strong>
+              <span>Add your onboarding/interest form here.</span>
+            </div>
+          </div>
+
+          <div class="hero-cta-row" style="margin-top: 1.5rem">
+            <a href="resources.html" class="btn btn-outline">← Back to Resources</a>
+          </div>
+
+          <p class="disclaimer" style="margin-top: 1rem; max-width: 42rem">
+            This page is for educational purposes only. Nothing here is financial
+            advice or a recommendation to buy or sell any security.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <span>
+          © <span id="year"></span> Investing Club. Educational use only · Not
+          financial advice.
+        </span>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

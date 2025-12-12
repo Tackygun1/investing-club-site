@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Investing Club | Safety & Mindset</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav class="nav">
+          <a href="index.html" class="nav-logo">
+            <div class="nav-logo-mark">
+              <span>IC</span>
+            </div>
+            <div class="nav-logo-text">
+              <span>Investing Club</span>
+              <small>Learn · Compete · Grow</small>
+            </div>
+          </a>
+
+          <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+
+          <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="resources.html" class="active">Resources</a>
+            <a href="competitions.html">Competitions</a>
+          </div>
+
+          <div class="nav-cta">
+            <a href="index.html#join" class="btn btn-outline">Join the club</a>
+            <a
+              href="https://forms.gle/YOUR-FORM-ID"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+              >Sign up</a
+            >
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Resources</div>
+              <h1 class="section-title">Safety &amp; mindset</h1>
+            </div>
+            <p class="section-desc">
+              Mindset, risk management, and ethics. Replace the placeholders with
+              your school-approved guidance.
+            </p>
+          </div>
+
+          <div class="grid grid-3">
+            <article class="card">
+              <h3>Principles</h3>
+              <p>Big ideas to keep members grounded.</p>
+              <ul>
+                <li><strong>[Link]</strong> — Why long-term thinking wins</li>
+                <li><strong>[Link]</strong> — Compounding &amp; patience</li>
+                <li><strong>[Link]</strong> — Avoiding get-rich-quick traps</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3>Club policies</h3>
+              <p>Make expectations crystal clear.</p>
+              <ul>
+                <li><strong>[Doc]</strong> — Risk &amp; ethics guidelines</li>
+                <li><strong>[Doc]</strong> — No real-money trading reminder</li>
+                <li><strong>[Doc]</strong> — How to report concerns</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3>Trusted resources</h3>
+              <p>External reads to reinforce safety.</p>
+              <ul>
+                <li><strong>[Investor.gov]</strong> — Protecting yourself online</li>
+                <li><strong>[Source]</strong> — Scam &amp; fraud red flags</li>
+                <li><strong>[Source]</strong> — Healthy investing habits</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="hero-cta-row" style="margin-top: 1.5rem">
+            <a href="resources.html" class="btn btn-outline">← Back to Resources</a>
+          </div>
+
+          <p class="disclaimer" style="margin-top: 1rem; max-width: 42rem">
+            Everything here is for educational purposes only. We never encourage
+            trading real money. Talk to a trusted adult before making any
+            financial decisions.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <span>
+          © <span id="year"></span> Investing Club. Educational use only · Not
+          financial advice.
+        </span>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

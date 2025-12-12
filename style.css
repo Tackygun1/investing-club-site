@@ -422,6 +422,16 @@ main {
   box-shadow: var(--shadow-soft);
 }
 
+.card-link {
+  display: block;
+  color: inherit;
+}
+
+.card-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
 .card h3 {
   font-size: 1rem;
   margin: 0 0 0.4rem;

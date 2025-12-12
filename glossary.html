@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Investing Club | Glossary</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav class="nav">
+          <a href="index.html" class="nav-logo">
+            <div class="nav-logo-mark">
+              <span>IC</span>
+            </div>
+            <div class="nav-logo-text">
+              <span>Investing Club</span>
+              <small>Learn · Compete · Grow</small>
+            </div>
+          </a>
+
+          <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+
+          <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="resources.html" class="active">Resources</a>
+            <a href="competitions.html">Competitions</a>
+          </div>
+
+          <div class="nav-cta">
+            <a href="index.html#join" class="btn btn-outline">Join the club</a>
+            <a
+              href="https://forms.gle/YOUR-FORM-ID"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+              >Sign up</a
+            >
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Resources</div>
+              <h1 class="section-title">Glossary</h1>
+            </div>
+            <p class="section-desc">
+              Fill this page with quick, friendly definitions your members will
+              actually read.
+            </p>
+          </div>
+
+          <div class="grid grid-3">
+            <article class="card">
+              <h3>Club glossary</h3>
+              <p>Link to your live doc so updates are easy.</p>
+              <ul>
+                <li><strong>[Doc link]</strong> — Investing Club glossary</li>
+                <li><strong>[Note]</strong> — How to suggest new terms</li>
+                <li><strong>[Link]</strong> — Printable PDF version</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3>Starter terms</h3>
+              <p>Handpick the basics for first-timers.</p>
+              <ul>
+                <li><strong>[Term — def]</strong> — Stock</li>
+                <li><strong>[Term — def]</strong> — ETF</li>
+                <li><strong>[Term — def]</strong> — Diversification</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3>Trusted external glossaries</h3>
+              <p>Balance perspectives with neutral sources.</p>
+              <ul>
+                <li><strong>[Investor.gov]</strong> — Glossary link</li>
+                <li><strong>[Source]</strong> — Plain-language definitions</li>
+                <li><strong>[Source]</strong> — More technical terms</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="hero-cta-row" style="margin-top: 1.5rem">
+            <a href="resources.html" class="btn btn-outline">← Back to Resources</a>
+          </div>
+
+          <p class="disclaimer" style="margin-top: 1rem; max-width: 42rem">
+            Definitions are for learning only and are not financial advice. Talk
+            to a trusted adult before making real-world decisions.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <span>
+          © <span id="year"></span> Investing Club. Educational use only · Not
+          financial advice.
+        </span>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

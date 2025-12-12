@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Investing Club | Strategy & Analysis</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav class="nav">
+          <a href="index.html" class="nav-logo">
+            <div class="nav-logo-mark">
+              <span>IC</span>
+            </div>
+            <div class="nav-logo-text">
+              <span>Investing Club</span>
+              <small>Learn · Compete · Grow</small>
+            </div>
+          </a>
+
+          <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+
+          <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="resources.html" class="active">Resources</a>
+            <a href="competitions.html">Competitions</a>
+          </div>
+
+          <div class="nav-cta">
+            <a href="index.html#join" class="btn btn-outline">Join the club</a>
+            <a
+              href="https://forms.gle/YOUR-FORM-ID"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+              >Sign up</a
+            >
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Resources</div>
+              <h1 class="section-title">Strategy &amp; analysis</h1>
+            </div>
+            <p class="section-desc">
+              Intermediate and advanced material. Swap the placeholders for your
+              favorite guides and examples.
+            </p>
+          </div>
+
+          <div class="grid grid-3">
+            <article class="card">
+              <h3>Fundamental analysis</h3>
+              <p>Company research and valuation basics.</p>
+              <ul>
+                <li><strong>[Link]</strong> — Income statement &amp; balance sheet</li>
+                <li><strong>[Link]</strong> — How to read a 10-K</li>
+                <li><strong>[Link]</strong> — Valuation quick cheatsheet</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3>Technical &amp; price action</h3>
+              <p>Chart-focused tools (keep it simple).</p>
+              <ul>
+                <li><strong>[Link]</strong> — Support, resistance, trends</li>
+                <li><strong>[Link]</strong> — Indicators you allow/use</li>
+                <li><strong>[Link]</strong> — Risk management basics</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3>Strategy examples</h3>
+              <p>Show what “good” looks like.</p>
+              <ul>
+                <li><strong>[Example]</strong> — Diversified long-term basket</li>
+                <li><strong>[Example]</strong> — Rules-based swing plan</li>
+                <li><strong>[Example]</strong> — Thesis template (pitch format)</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="hero-cta-row" style="margin-top: 1.5rem">
+            <a href="resources.html" class="btn btn-outline">← Back to Resources</a>
+          </div>
+
+          <p class="disclaimer" style="margin-top: 1rem; max-width: 42rem">
+            All strategies here are for learning only. They are not financial
+            advice or predictions of future performance.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <span>
+          © <span id="year"></span> Investing Club. Educational use only · Not
+          financial advice.
+        </span>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

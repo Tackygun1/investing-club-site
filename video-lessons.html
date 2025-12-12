@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Investing Club | Video & Interactive Lessons</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav class="nav">
+          <a href="index.html" class="nav-logo">
+            <div class="nav-logo-mark">
+              <span>IC</span>
+            </div>
+            <div class="nav-logo-text">
+              <span>Investing Club</span>
+              <small>Learn · Compete · Grow</small>
+            </div>
+          </a>
+
+          <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+
+          <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="resources.html" class="active">Resources</a>
+            <a href="competitions.html">Competitions</a>
+          </div>
+
+          <div class="nav-cta">
+            <a href="index.html#join" class="btn btn-outline">Join the club</a>
+            <a
+              href="https://forms.gle/YOUR-FORM-ID"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+              >Sign up</a
+            >
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Resources</div>
+              <h1 class="section-title">Video &amp; interactive lessons</h1>
+            </div>
+            <p class="section-desc">
+              Plug in your best external links here—video series, interactive
+              modules, and practice simulators that you actually recommend.
+            </p>
+          </div>
+
+          <div class="grid grid-3">
+            <article class="card">
+              <h3>Beginner video playlists</h3>
+              <p>Add short, trustworthy intros (no hype).</p>
+              <ul>
+                <li><strong>[YouTube / Khan]</strong> — Markets 101 playlist</li>
+                <li><strong>[Link]</strong> — Understanding ETFs in 10 minutes</li>
+                <li><strong>[Link]</strong> — Long-term vs. short-term thinking</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3>Interactive practice</h3>
+              <p>Simulators, quizzes, and tutorials.</p>
+              <ul>
+                <li><strong>[Simulator]</strong> — Paper trading setup guide</li>
+                <li><strong>[Quiz]</strong> — Risk &amp; diversification check</li>
+                <li><strong>[Tool]</strong> — Simple portfolio builder</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3>Official &amp; unbiased sources</h3>
+              <p>Neutral explainers to balance opinions.</p>
+              <ul>
+                <li><strong>[Investor.gov]</strong> — Investing basics</li>
+                <li><strong>[SEC / FINRA]</strong> — Avoiding fraud &amp; hype</li>
+                <li><strong>[Link]</strong> — How to research a company</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="hero-cta-row" style="margin-top: 1.5rem">
+            <a href="resources.html" class="btn btn-outline">← Back to Resources</a>
+          </div>
+
+          <p class="disclaimer" style="margin-top: 1rem; max-width: 42rem">
+            Videos and external links are for learning only. We don’t endorse any
+            specific stock, fund, broker, or strategy.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <span>
+          © <span id="year"></span> Investing Club. Educational use only · Not
+          financial advice.
+        </span>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
