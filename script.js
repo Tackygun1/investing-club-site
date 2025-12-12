@@ -72,173 +72,201 @@
   }
 
   function initMarketBackgroundCandles() {
-    // Even with reduced motion, we still show a STATIC background so you see a change.
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // Always show a background, but run animation efficiently.
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const isMobile = window.matchMedia("(max-width: 720px)").matches;
 
-    const layer = document.createElement("div");
-    layer.className = "market-bg";
-    layer.setAttribute("aria-hidden", "true");
+  const layer = document.createElement("div");
+  layer.className = "market-bg";
+  layer.setAttribute("aria-hidden", "true");
 
-    const canvas = document.createElement("canvas");
-    canvas.className = "market-bg-canvas";
-    layer.appendChild(canvas);
+  const canvas = document.createElement("canvas");
+  canvas.className = "market-bg-canvas";
+  layer.appendChild(canvas);
+  document.body.prepend(layer);
 
-    document.body.prepend(layer);
+  const ctx = canvas.getContext("2d", { alpha: true });
+  if (!ctx) return;
 
-    const ctx = canvas.getContext("2d", { alpha: true });
-    if (!ctx) return;
+  // PERFORMANCE CONFIG
+  const cfg = {
+    candleW: isMobile ? 7 : 8,
+    gap: isMobile ? 8 : 7,
+    speedPxPerSec: isMobile ? 22 : 32,     // slower = less busy
+    glow: 0,                               // shadowBlur is expensive — keep 0
+    alpha: isMobile ? 0.12 : 0.16,         // lower opacity = easier to read + lighter render
+    fps: isMobile ? 18 : 24,               // cap FPS (biggest CPU win)
+    scale: isMobile ? 0.7 : 0.8            // render at lower internal resolution
+  };
 
-    const cfg = {
-      candleW: 9,
-      gap: 7,
-      speedPxPerFrame: 0.65,
-      glow: 10,
-      alpha: 0.22,
-    };
+  let W = 0, H = 0, drawW = 0, drawH = 0;
 
-    let dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
-    let W = 0,
-      H = 0;
+  function resize() {
+    W = Math.floor(window.innerWidth);
+    H = Math.floor(window.innerHeight);
 
-    function resize() {
-      dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
-      W = Math.floor(window.innerWidth);
-      H = Math.floor(window.innerHeight);
-      canvas.width = Math.floor(W * dpr);
-      canvas.height = Math.floor(H * dpr);
-      canvas.style.width = `${W}px`;
-      canvas.style.height = `${H}px`;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
-    resize();
-    window.addEventListener("resize", resize);
+    drawW = Math.max(320, Math.floor(W * cfg.scale));
+    drawH = Math.max(320, Math.floor(H * cfg.scale));
 
-    const step = cfg.candleW + cfg.gap;
-    const count = Math.ceil(W / step) + 10;
+    canvas.width = drawW;
+    canvas.height = drawH;
+    canvas.style.width = `${W}px`;
+    canvas.style.height = `${H}px`;
 
-    let price = 100 + Math.random() * 30;
-    let candles = Array.from({ length: count }, () => nextCandle(price));
-    price = candles[candles.length - 1].close;
+    // map drawing coords to the downscaled canvas
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+  }
+  resize();
+  window.addEventListener("resize", resize);
 
-    let offset = 0;
+  const step = cfg.candleW + cfg.gap;
+  const count = Math.ceil(drawW / step) + 10;
 
-    function nextCandle(prevClose) {
-      const vol = 0.012 + Math.random() * 0.01;
-      const drift = 0.00005;
-      const shock = (Math.random() - 0.5) * 2 * vol;
-      const ret = drift + shock;
+  let price = 100 + Math.random() * 30;
+  let candles = Array.from({ length: count }, () => nextCandle(price));
+  price = candles[candles.length - 1].close;
 
-      const open = prevClose;
-      const close = Math.max(1, prevClose * (1 + ret));
-      const wick = Math.max(0.002, Math.abs(ret) * 0.7 + Math.random() * vol);
-      const high = Math.max(open, close) * (1 + wick * (0.4 + Math.random() * 0.6));
-      const low = Math.min(open, close) * (1 - wick * (0.4 + Math.random() * 0.6));
-      return { open, high, low, close };
-    }
+  let offset = 0;
 
-    function drawGrid() {
-      ctx.save();
-      ctx.globalAlpha = 0.35;
-      ctx.lineWidth = 1;
+  function nextCandle(prevClose) {
+    const vol = 0.012 + Math.random() * 0.01;
+    const drift = 0.00005;
+    const shock = (Math.random() - 0.5) * 2 * vol;
+    const ret = drift + shock;
 
-      const lines = 6;
-      for (let i = 0; i <= lines; i++) {
-        const y = (H * i) / lines;
-        ctx.strokeStyle = "rgba(255,255,255,0.07)";
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(W, y);
-        ctx.stroke();
-      }
+    const open = prevClose;
+    const close = Math.max(1, prevClose * (1 + ret));
+    const wick = Math.max(0.002, Math.abs(ret) * 0.7 + Math.random() * vol);
+    const high = Math.max(open, close) * (1 + wick * (0.4 + Math.random() * 0.6));
+    const low = Math.min(open, close) * (1 - wick * (0.4 + Math.random() * 0.6));
+    return { open, high, low, close };
+  }
 
-      for (let x = 0; x < W; x += 140) {
-        ctx.strokeStyle = "rgba(255,255,255,0.045)";
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, H);
-        ctx.stroke();
-      }
-      ctx.restore();
+  function drawGrid() {
+    ctx.save();
+    ctx.globalAlpha = 0.25;
+    ctx.lineWidth = 1;
+
+    const lines = 6;
+    for (let i = 0; i <= lines; i++) {
+      const y = (drawH * i) / lines;
+      ctx.strokeStyle = "rgba(255,255,255,0.07)";
+      ctx.beginPath();
+      ctx.moveTo(0, y);
+      ctx.lineTo(drawW, y);
+      ctx.stroke();
     }
 
-    function frame() {
-      // range
-      let min = Infinity,
-        max = -Infinity;
-      for (const c of candles) {
-        min = Math.min(min, c.low);
-        max = Math.max(max, c.high);
-      }
-      const pad = (max - min) * 0.18 || max * 0.02;
-      min -= pad;
-      max += pad;
+    for (let x = 0; x < drawW; x += 140) {
+      ctx.strokeStyle = "rgba(255,255,255,0.04)";
+      ctx.beginPath();
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x, drawH);
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
 
-      function mapY(p) {
-        const padTop = 110;
-        const padBot = 140;
-        const usable = H - padTop - padBot;
-        const t = (p - min) / (max - min || 1);
-        return padTop + (1 - t) * usable;
-      }
+  function drawFrame() {
+    let min = Infinity, max = -Infinity;
+    for (const c of candles) {
+      min = Math.min(min, c.low);
+      max = Math.max(max, c.high);
+    }
+    const pad = (max - min) * 0.18 || max * 0.02;
+    min -= pad;
+    max += pad;
 
-      ctx.clearRect(0, 0, W, H);
-      drawGrid();
+    const padTop = 70;
+    const padBot = 90;
+    const usable = drawH - padTop - padBot;
 
-      ctx.save();
-      ctx.globalAlpha = cfg.alpha;
+    function mapY(p) {
+      const t = (p - min) / (max - min || 1);
+      return padTop + (1 - t) * usable;
+    }
 
-      for (let i = 0; i < candles.length; i++) {
-        const c = candles[i];
-        const up = c.close >= c.open;
+    ctx.clearRect(0, 0, drawW, drawH);
+    drawGrid();
 
-        const x = i * step - offset + 40;
-        const yO = mapY(c.open);
-        const yC = mapY(c.close);
-        const yH = mapY(c.high);
-        const yL = mapY(c.low);
+    ctx.save();
+    ctx.globalAlpha = cfg.alpha;
 
-        const bodyTop = Math.min(yO, yC);
-        const bodyH = Math.max(2, Math.abs(yO - yC));
-        const bodyW = cfg.candleW;
+    for (let i = 0; i < candles.length; i++) {
+      const c = candles[i];
+      const up = c.close >= c.open;
 
-        const wickColor = up ? "rgba(74,222,128,0.95)" : "rgba(244,63,94,0.95)";
-        const bodyFill = up ? "rgba(74,222,128,0.18)" : "rgba(244,63,94,0.16)";
+      const x = i * step - offset + 30;
+      const yO = mapY(c.open);
+      const yC = mapY(c.close);
+      const yH = mapY(c.high);
+      const yL = mapY(c.low);
 
-        ctx.shadowBlur = cfg.glow;
-        ctx.shadowColor = wickColor;
+      const bodyTop = Math.min(yO, yC);
+      const bodyH = Math.max(2, Math.abs(yO - yC));
+      const bodyW = cfg.candleW;
 
-        ctx.strokeStyle = wickColor;
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.moveTo(x + bodyW / 2, yH);
-        ctx.lineTo(x + bodyW / 2, yL);
-        ctx.stroke();
+      const wickColor = up ? "rgba(74,222,128,0.9)" : "rgba(244,63,94,0.9)";
+      const bodyFill  = up ? "rgba(74,222,128,0.16)" : "rgba(244,63,94,0.14)";
 
-        ctx.fillStyle = bodyFill;
-        ctx.strokeStyle = wickColor;
-        roundRect(ctx, x, bodyTop, bodyW, bodyH, 3);
-        ctx.fill();
-        ctx.stroke();
-      }
+      // NO SHADOWS (big perf win)
+      ctx.strokeStyle = wickColor;
+      ctx.fillStyle = bodyFill;
 
-      ctx.restore();
+      // wick
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(x + bodyW / 2, yH);
+      ctx.lineTo(x + bodyW / 2, yL);
+      ctx.stroke();
 
-      if (reduceMotion) return; // keep static if user prefers reduced motion
+      // body (fast rect, no rounded corners)
+      ctx.fillRect(x, bodyTop, bodyW, bodyH);
+      ctx.strokeRect(x + 0.5, bodyTop + 0.5, bodyW - 1, bodyH - 1);
+    }
 
-      // advance animation
-      offset += cfg.speedPxPerFrame;
+    ctx.restore();
+  }
+
+  // Pause animation when tab is hidden
+  let paused = false;
+  document.addEventListener("visibilitychange", () => {
+    paused = document.hidden;
+  });
+
+  // FPS throttle
+  const frameMs = 1000 / cfg.fps;
+  let lastTime = 0;
+
+  function loop(t) {
+    if (reduceMotion) {
+      drawFrame(); // static one-time-ish (but safe if called repeatedly)
+      return;
+    }
+    if (!paused && t - lastTime >= frameMs) {
+      const dt = Math.min(50, t - lastTime);
+      lastTime = t;
+
+      // advance using dt (smooth even at lower FPS)
+      offset += (cfg.speedPxPerSec * dt) / 1000;
+
       if (offset >= step) {
-        offset -= step;
+        while (offset >= step) offset -= step;
         candles.shift();
         const last = candles[candles.length - 1];
         candles.push(nextCandle(last.close));
       }
 
-      requestAnimationFrame(frame);
+      drawFrame();
     }
-
-    requestAnimationFrame(frame);
+    requestAnimationFrame(loop);
   }
+
+  // draw once immediately so you SEE it right away
+  drawFrame();
+  requestAnimationFrame(loop);
+}
+
 
   function roundRect(ctx, x, y, w, h, r) {
     const rr = Math.min(r, w / 2, h / 2);
