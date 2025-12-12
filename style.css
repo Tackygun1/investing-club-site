@@ -542,30 +542,56 @@ body::before {
   mix-blend-mode: screen;
 }
 
-/* Animated candlestick background */
+@media (pointer: coarse) {
+  body::before {
+    display: none;
+  }
+}
+
+/* Ambient background (static by default, very light animation on desktop) */
 .market-bg {
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
+  background:
+    radial-gradient(1100px 1100px at 18% 12%, rgba(56, 189, 248, 0.1), transparent 60%),
+    radial-gradient(1000px 1000px at 82% 0%, rgba(167, 139, 250, 0.08), transparent 55%),
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    #020617;
+  background-size: auto, auto, 100% 130px, 160px 100%, auto;
+  opacity: 0.82;
 }
 
 .market-bg::after {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(circle at top, rgba(2,6,23,0.25), rgba(2,6,23,0.85) 60%),
-    linear-gradient(to bottom, rgba(2,6,23,0.15), rgba(2,6,23,0.92));
+  background: linear-gradient(to bottom, rgba(2, 6, 23, 0.4), rgba(2, 6, 23, 0.9));
 }
 
-.market-bg-canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  mix-blend-mode: screen;
-  filter: saturate(1.05);
+.market-bg-animate {
+  animation: marketDrift 26s linear infinite;
+}
+
+@keyframes marketDrift {
+  from {
+    background-position: 0 0, 0 0, 0 0, 0 0, 0 0;
+  }
+  to {
+    background-position: 0 0, 0 0, 0 130px, 160px 0, 0 0;
+  }
+}
+
+.market-bg-static {
+  opacity: 0.7;
+}
+
+@media (max-width: 720px) {
+  .market-bg {
+    display: none;
+  }
 }
 
 /* Stronger, obvious visual difference */
@@ -589,14 +615,13 @@ body::before {
 /* Reveal animations */
 .reveal {
   opacity: 0;
-  transform: translateY(10px);
-  filter: blur(2px);
-  transition: opacity 520ms ease, transform 520ms ease, filter 520ms ease;
+  transform: translateY(8px);
+  transition: opacity 320ms ease, transform 320ms ease;
+  will-change: opacity, transform;
 }
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
-  filter: blur(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
