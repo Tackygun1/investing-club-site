@@ -519,25 +519,17 @@ footer a {
   text-decoration-style: dotted;
   text-underline-offset: 0.18em;
 }
-/* ===== Visual Upgrade Pack (append at bottom) ===== */
+/* ===== Visual Upgrade Pack v2 (append at bottom) ===== */
 
 :root {
-  --accent2: #38bdf8;            /* cyan */
-  --accent3: #a78bfa;            /* violet */
-  --glass: rgba(2, 6, 23, 0.55);
-  --glass2: rgba(15, 23, 42, 0.55);
-  --ring: rgba(56, 189, 248, 0.22);
+  --accent2: #38bdf8;
+  --accent3: #a78bfa;
   --mx: 50vw;
   --my: 30vh;
 }
 
-/* Put content above bg canvas */
-header, main, footer {
-  position: relative;
-  z-index: 1;
-}
+header, main, footer { position: relative; z-index: 1; }
 
-/* Cursor glow (subtle) */
 body::before {
   content: "";
   position: fixed;
@@ -550,13 +542,12 @@ body::before {
   mix-blend-mode: screen;
 }
 
-/* Animated candlestick background layer */
+/* Animated candlestick background */
 .market-bg {
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  opacity: 1;
 }
 
 .market-bg::after {
@@ -565,7 +556,7 @@ body::before {
   inset: 0;
   background:
     radial-gradient(circle at top, rgba(2,6,23,0.25), rgba(2,6,23,0.85) 60%),
-    linear-gradient(to bottom, rgba(2,6,23,0.25), rgba(2,6,23,0.92));
+    linear-gradient(to bottom, rgba(2,6,23,0.15), rgba(2,6,23,0.92));
 }
 
 .market-bg-canvas {
@@ -573,46 +564,11 @@ body::before {
   inset: 0;
   width: 100%;
   height: 100%;
-  filter: saturate(1.05);
   mix-blend-mode: screen;
+  filter: saturate(1.05);
 }
 
-/* Improve overall background */
-body {
-  background:
-    radial-gradient(circle at 10% 10%, rgba(56,189,248,0.12), transparent 40%),
-    radial-gradient(circle at 90% 15%, rgba(167,139,250,0.10), transparent 45%),
-    radial-gradient(circle at 30% 95%, rgba(34,197,94,0.10), transparent 45%),
-    radial-gradient(circle at top, #111827 0, #020617 55%);
-}
-
-/* Header more premium */
-header {
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  background: rgba(2, 6, 23, 0.72);
-  backdrop-filter: blur(18px);
-}
-
-/* Buttons: more “terminal” */
-.btn {
-  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-  letter-spacing: 0.01em;
-}
-.btn-primary {
-  background: linear-gradient(135deg, #22c55e, #38bdf8);
-  color: #02170f;
-  border: 1px solid rgba(56,189,248,0.25);
-}
-.btn-primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 18px 50px rgba(56,189,248,0.20), 0 18px 50px rgba(34,197,94,0.18);
-}
-.btn-outline:hover {
-  background: rgba(255,255,255,0.06);
-  border-color: rgba(56,189,248,0.25);
-}
-
-/* Hero headline: gradient pop */
+/* Stronger, obvious visual difference */
 .hero-title span {
   background: linear-gradient(90deg, #4ade80, #38bdf8, #a78bfa);
   -webkit-background-clip: text;
@@ -620,34 +576,14 @@ header {
   color: transparent;
 }
 
-/* Cards: glass + hover lift */
 .card, .hero-card {
   background: linear-gradient(180deg, rgba(15,23,42,0.72), rgba(2,6,23,0.72));
-  border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 18px 55px rgba(0,0,0,0.55);
-  position: relative;
-  overflow: hidden;
-}
-
-.card::before, .hero-card::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  background: radial-gradient(420px 220px at 20% 0%, rgba(56,189,248,0.14), transparent 60%),
-              radial-gradient(420px 240px at 80% 20%, rgba(167,139,250,0.10), transparent 60%);
-  opacity: 0.9;
-  pointer-events: none;
+  border: 1px solid rgba(255,255,255,0.10);
 }
 
 .card:hover, .hero-card:hover {
   transform: translateY(-2px);
   transition: transform 180ms ease, box-shadow 180ms ease;
-  box-shadow: 0 26px 75px rgba(0,0,0,0.62);
-}
-
-/* Leaderboard: nicer hover */
-.leaderboard tr:hover td {
-  background: rgba(255,255,255,0.04);
 }
 
 /* Reveal animations */
@@ -663,11 +599,8 @@ header {
   filter: blur(0);
 }
 
-/* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .reveal { transition: none; }
   .card:hover, .hero-card:hover { transform: none; }
   body::before { display: none; }
-  .market-bg { display: none; }
 }
-
